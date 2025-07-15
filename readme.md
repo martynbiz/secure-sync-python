@@ -35,3 +35,51 @@ python .\main.py --source-dir ./Documents --dest-dir ./pCloud
 ## Unit testing
 
 todo
+
+## Run as a service (linux)
+
+todo - how to access passphrase
+
+```
+sudo nano /etc/systemd/system/secure-sync-python.service
+```
+
+```
+[Unit]
+Description=Secure sync python
+After=network.target
+
+[Service]
+User=your_username
+Group=your_groupname
+WorkingDirectory=/path/to/secure-sync-python
+ExecStart=/path/to/your/project/venv/bin/python /path/to/secure-sync-python/main.py --source-dir /path/to/source_dir --dest-dir /path/to/dest_dir
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+After creating or modifying the service file, reload the systemd manager configuration:
+
+```
+sudo systemctl daemon-reload
+```
+
+You can now start your service with the following command:
+
+```
+sudo systemctl start secure-sync-python.service
+```
+
+To ensure that your service starts automatically on boot, use the following command:
+
+```
+sudo systemctl enable secure-sync-python.service
+```
+
+You can check the status of your service to see if it is running correctly:
+
+```
+sudo systemctl status secure-sync-python.service
+```
