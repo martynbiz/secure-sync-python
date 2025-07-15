@@ -38,6 +38,8 @@ todo
 
 ## Run as a service (linux)
 
+This could be used to ensure that every time the system starts, secure sync is running
+
 todo - how to access passphrase
 
 ```
@@ -82,4 +84,10 @@ You can check the status of your service to see if it is running correctly:
 
 ```
 sudo systemctl status secure-sync-python.service
+```
+
+If you need to troubleshoot, you can view the logs for your service using:
+
+```
+journalctl -u secure-sync-python.service
 ```
