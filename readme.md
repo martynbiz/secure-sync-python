@@ -42,9 +42,13 @@ This could be used to ensure that every time the system starts, secure sync is r
 
 todo - how to access passphrase
 
+Open a terminal and create a new service file in the /etc/systemd/system/ directory. You will need superuser privileges to do this:
+
 ```
 sudo nano /etc/systemd/system/secure-sync-python.service
 ```
+
+Add the following content to the service file, modifying it to fit your project:
 
 ```
 [Unit]
