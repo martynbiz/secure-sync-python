@@ -5,7 +5,7 @@ The secure-sync script is designed to enhance data privacy by providing end-to-e
 ## Getting started
 
 ```
-git clone ...
+git clone https://github.com/martynbiz/secure-sync-python.git
 cd secure-sync-python
 pip install -r requirements.txt
 ```

@@ -269,7 +269,14 @@ def main():
                         print(f'Encrypted {file_path}')
 
                 if force_overwrite:
-                    for filename in os.listdir(dest_dir):
+                    for filename in os.listdir(dest_dir):                        
+                        is_hidden_file = False
+                        if (os.name == 'nt' and os.path.isfile(dest_file_path) and (os.stat(dest_file_path).st_file_attributes & 0x02)):
+                            is_hidden_file = True
+                        elif filename.startswith('.'):
+                            is_hidden_file = True
+                        if is_hidden_file:
+                            continue                            
                         dest_file_path = os.path.join(dest_dir, filename)
                         if dest_file_path not in encrypted_file_paths:
                             print(f'Removed {dest_file_path}')
